@@ -31,3 +31,13 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
+/* Style Dropzone */
+.dropzone {
+    border: 2px dashed #ccc;
+    background: #f8f8f8;
+    padding: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    text-align: center;
+}

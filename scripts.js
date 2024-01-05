@@ -1,25 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const fileInput = document.getElementById('fileInput');
     const gallery = document.getElementById('gallery');
 
-    fileInput.addEventListener('change', handleFileSelect);
+    // Initialize Dropzone
+    const myDropzone = new Dropzone('#myDropzone', {
+        url: '/upload', // You can set the upload URL or handle it on the server side
+        autoProcessQueue: false,
+        maxFilesize: 5, // Maximum file size in MB
+        acceptedFiles: 'image/*', // Only allow image files
+        init: function () {
+            this.on('addedfile', function (file) {
+                // Handle added files (if needed)
+            });
 
-    function handleFileSelect(event) {
-        const files = event.target.files;
-
-        for (const file of files) {
-            if (file.type.startsWith('image/')) {
-                const reader = new FileReader();
-
-                reader.onload = function (e) {
-                    const thumbnail = createThumbnail(e.target.result);
-                    gallery.appendChild(thumbnail);
-                };
-
-                reader.readAsDataURL(file);
-            }
+            this.on('complete', function (file) {
+                // Handle completed uploads (if needed)
+            });
         }
-    }
+    });
+
+    // Handle file drop
+    myDropzone.on('addedfile', function (file) {
+        // Handle added files (if needed)
+        const thumbnail = createThumbnail(URL.createObjectURL(file));
+        gallery.appendChild(thumbnail);
+    });
 
     function createThumbnail(src) {
         const thumbnail = document.createElement('div');
