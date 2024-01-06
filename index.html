@@ -732,6 +732,14 @@
     <h1>Project Overview:</h1>
     <p>Create a Python script that retrieves weather information for a given city using the OpenWeatherMap API. The script will allow the user to input the city name, fetch real-time weather data, and display relevant information.</p>
 
+    <h1>Project Goals:</h1>
+    <ul>
+        <li>Create a modular script using separate modules for API connectivity and data processing.</li>
+        <li>Implement a class (<code>WeatherData</code>) to encapsulate weather-related functionality.</li>
+        <li>Interact with an external API (OpenWeatherMap) to fetch real-time weather data.</li>
+        <li>Process and display relevant weather information to the user.</li>
+    </ul>
+
     <h1>Project Structure:</h1>
 
     <h3>Modules:</h3>
@@ -764,13 +772,6 @@
         <li>Run <code>weather_app.py</code> to execute the script.</li>
     </ol>
 
-    <h1>Project Goals:</h1>
-    <ul>
-        <li>Create a modular script using separate modules for API connectivity and data processing.</li>
-        <li>Implement a class (<code>WeatherData</code>) to encapsulate weather-related functionality.</li>
-        <li>Interact with an external API (OpenWeatherMap) to fetch real-time weather data.</li>
-        <li>Process and display relevant weather information to the user.</li>
-    </ul>
 
     <p>Feel free to expand this project further by adding more features, such as a user-friendly interface, additional weather details, or error handling improvements. This project provides a practical application of the concepts covered in the previous lessons.</p>
 
@@ -817,24 +818,7 @@
                 }
     
                 update() {
-                    // Example 1: Circular motion
-                    // this.x += Math.cos(this.angle) * this.speed;
-                    // this.y += Math.sin(this.angle) * this.speed;
-                    // this.angle += 0.02; // Angular speed
-    
-                    // Example 2: Random motion
-                    // this.x += (Math.random() - 0.5) * this.speed;
-                    // this.y += (Math.random() - 0.5) * this.speed;
-    
-                    // Example 3: Diagonal motion
-                    // this.x += this.speed;
-                    // this.y += this.speed;
-    
-                    // Example 4: Zigzag motion
-                    // this.x += this.speed;
-                    // this.y += Math.sin(this.x / 30) * 10;
-    
-                    // Example 5: Bouncing off the walls
+                    
                     this.x += Math.cos(this.angle) * this.speed;
                     this.y += Math.sin(this.angle) * this.speed;
                     this.angle += 0.02; // Angular speed
