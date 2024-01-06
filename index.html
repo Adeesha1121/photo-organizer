@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Use Python like a Pro</title>    
+    <title>Use Python like a Pro</title>
+    
 
     <style>
         body {
@@ -727,54 +728,55 @@
 
         <section>
             <h2>Lesson 8: Final Project - Weather Information Checker</h2>
-
-    <h1>Project Overview:</h1>
-    <p>Create a Python script that retrieves weather information for a given city using the OpenWeatherMap API. The script will allow the user to input the city name, fetch real-time weather data, and display relevant information.</p>
-
-    <h1>Project Goals:</h1>
-    <ul>
-        <li>Create a modular script using separate modules for API connectivity and data processing.</li>
-        <li>Implement a class (<code>WeatherData</code>) to encapsulate weather-related functionality.</li>
-        <li>Interact with an external API (OpenWeatherMap) to fetch real-time weather data.</li>
-        <li>Process and display relevant weather information to the user.</li>
-    </ul>
-
-    <h1>Project Structure:</h1>
-
-    <h3>Modules:</h3>
-    <ul>
-        <li><code>api_connector.py:</code> Module responsible for connecting to the OpenWeatherMap API.</li>
-        <li><code>data_processor.py:</code> Module for processing and formatting the weather data.</li>
-        <li><code>weather_app.py:</code> Main script that interacts with the user.</li>
-    </ul>
-
-    <h3>Classes:</h3>
-    <ul>
-        <li><code>WeatherData:</code> A class to represent the weather data and encapsulate related functionality.</li>
-    </ul>
-
-    <h1>Module Details:</h1>
-
-    <h3><code>api_connector.py</code></h3>
-    <code>import requests
-
-        class ApiConnector:
-            def __init__(self, api_key):
-                self.api_key = api_key
-                self.base_url = "http://api.openweathermap.org/data/2.5/weather"
-        
-            def get_weather_data(self, city):
-                params = {"q": city, "appid": self.api_key, "units": "metric"}
-                response = requests.get(self.base_url, params=params)
-                if response.status_code == 200:
-                    return response.json()
-                else:
-                    print(f"Error {response.status_code}: Unable to fetch weather data.")
-                    return None
-        </code>
-
-    <h3><code>data_processor.py</code></h3>
-    <code>class DataProcessor:
+    
+            <h1>Project Overview:</h1>
+            <p>Create a Python script that retrieves weather information for a given city using the OpenWeatherMap API.
+                The script will allow the user to input the city name, fetch real-time weather data, and display relevant
+                information.</p>
+    
+            <h1>Project Goals:</h1>
+            <ul>
+                <li>Create a modular script using separate modules for API connectivity and data processing.</li>
+                <li>Implement a class (<code>WeatherData</code>) to encapsulate weather-related functionality.</li>
+                <li>Interact with an external API (OpenWeatherMap) to fetch real-time weather data.</li>
+                <li>Process and display relevant weather information to the user.</li>
+            </ul>
+    
+            <h1>Project Structure:</h1>
+    
+            <h3>Modules:</h3>
+            <ul>
+                <li><code>api_connector.py:</code> Module responsible for connecting to the OpenWeatherMap API.</li>
+                <li><code>data_processor.py:</code> Module for processing and formatting the weather data.</li>
+                <li><code>weather_app.py:</code> Main script that interacts with the user.</li>
+            </ul>
+    
+            <h3>Classes:</h3>
+            <ul>
+                <li><code>WeatherData:</code> A class to represent the weather data and encapsulate related functionality.
+                </li>
+            </ul>
+    
+            <h1>Module Details:</h1>
+    
+            <h3><code>api_connector.py</code></h3>
+            <pre class="sT"><code>class ApiConnector:
+        def __init__(self, api_key):
+            self.api_key = api_key
+            self.base_url = "http://api.openweathermap.org/data/2.5/weather"
+    
+        def get_weather_data(self, city):
+            params = {"q": city, "appid": self.api_key, "units": "metric"}
+            response = requests.get(self.base_url, params=params)
+            if response.status_code == 200:
+                return response.json()
+            else:
+                print(f"Error {response.status_code}: Unable to fetch weather data.")
+                return None
+    </code></pre>
+    
+            <h3><code>data_processor.py</code></h3>
+            <pre class="sT"><code>class DataProcessor:
         @staticmethod
         def process_weather_data(weather_data):
             processed_data = {
@@ -784,56 +786,57 @@
                 "wind_speed": weather_data["wind"]["speed"],
             }
             return processed_data
-    </code>
-
-    <h3><code>weather_app.py</code></h3>
-    <code>from api_connector import ApiConnector
-        from data_processor import DataProcessor
-        
-        class WeatherData:
-            def __init__(self, api_key):
-                self.api_connector = ApiConnector(api_key)
-                self.data_processor = DataProcessor()
-        
-            def get_weather_info(self, city):
-                weather_data = self.api_connector.get_weather_data(city)
-                if weather_data:
-                    processed_data = self.data_processor.process_weather_data(weather_data)
-                    return processed_data
-                else:
-                    return None
-        
-        def main():
-            api_key = "YOUR_OPENWEATHERMAP_API_KEY"
-            weather_data = WeatherData(api_key)
-        
-            city = input("Enter the city name: ")
-            result = weather_data.get_weather_info(city)
-        
-            if result:
-                print(f"Weather in {city}:")
-                print(f"Temperature: {result['temperature']}°C")
-                print(f"Description: {result['description']}")
-                print(f"Humidity: {result['humidity']}%")
-                print(f"Wind Speed: {result['wind_speed']} m/s")
+    </code></pre>
+    
+            <h3><code>weather_app.py</code></h3>
+            <pre class="sT"><code>from api_connector import ApiConnector
+    from data_processor import DataProcessor
+    
+    class WeatherData:
+        def __init__(self, api_key):
+            self.api_connector = ApiConnector(api_key)
+            self.data_processor = DataProcessor()
+    
+        def get_weather_info(self, city):
+            weather_data = self.api_connector.get_weather_data(city)
+            if weather_data:
+                processed_data = self.data_processor.process_weather_data(weather_data)
+                return processed_data
             else:
-                print("Unable to fetch weather information.")
-        
-        if __name__ == "__main__":
-            main()
-        </code>
-
-    <h1>Instructions:</h1>
-    <ol>
-        <li>Replace <code>"YOUR_OPENWEATHERMAP_API_KEY"</code> with your actual OpenWeatherMap API key.</li>
-        <li>Ensure that the required libraries (<code>requests</code>) are installed.</li>
-        <li>Run <code>weather_app.py</code> to execute the script.</li>
-    </ol>
-
-
-    <p>Feel free to expand this project further by adding more features, such as a user-friendly interface, additional weather details, or error handling improvements. This project provides a practical application of the concepts covered in the previous lessons.</p>
-
+                return None
+    
+    def main():
+        api_key = "YOUR_OPENWEATHERMAP_API_KEY"
+        weather_data = WeatherData(api_key)
+    
+        city = input("Enter the city name: ")
+        result = weather_data.get_weather_info(city)
+    
+        if result:
+            print(f"Weather in {city}:")
+            print(f"Temperature: {result['temperature']}°C")
+            print(f"Description: {result['description']}")
+            print(f"Humidity: {result['humidity']}%")
+            print(f"Wind Speed: {result['wind_speed']} m/s")
+        else:
+            print("Unable to fetch weather information.")
+    
+    if __name__ == "__main__":
+        main()
+    </code></pre>
+    
+            <h1>Instructions:</h1>
+            <ol>
+                <li>Replace <code>"YOUR_OPENWEATHERMAP_API_KEY"</code> with your actual OpenWeatherMap API key.</li>
+                <li>Ensure that the required libraries (<code>requests</code>) are installed.</li>
+                <li>Run <code>weather_app.py</code> to execute the script.</li>
+            </ol>
+    
+            <p>Feel free to expand this project further by adding more features, such as a user-friendly interface,
+                additional weather details, or error handling improvements. This project provides a practical application
+                of the concepts covered in the previous lessons.</p>
         </section>
+    
 
         <section>
             <h1>Recommended Resources</h1>
