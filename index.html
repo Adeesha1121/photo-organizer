@@ -756,13 +756,72 @@
     <h1>Module Details:</h1>
 
     <h3><code>api_connector.py</code></h3>
-    <code>/* Copy and paste the content of api_connector.py here */</code>
+    <code>import requests
+
+        class ApiConnector:
+            def __init__(self, api_key):
+                self.api_key = api_key
+                self.base_url = "http://api.openweathermap.org/data/2.5/weather"
+        
+            def get_weather_data(self, city):
+                params = {"q": city, "appid": self.api_key, "units": "metric"}
+                response = requests.get(self.base_url, params=params)
+                if response.status_code == 200:
+                    return response.json()
+                else:
+                    print(f"Error {response.status_code}: Unable to fetch weather data.")
+                    return None
+        </code>
 
     <h3><code>data_processor.py</code></h3>
-    <code>/* Copy and paste the content of data_processor.py here */</code>
+    <code>class DataProcessor:
+        @staticmethod
+        def process_weather_data(weather_data):
+            processed_data = {
+                "temperature": weather_data["main"]["temp"],
+                "description": weather_data["weather"][0]["description"],
+                "humidity": weather_data["main"]["humidity"],
+                "wind_speed": weather_data["wind"]["speed"],
+            }
+            return processed_data
+    </code>
 
     <h3><code>weather_app.py</code></h3>
-    <code>/* Copy and paste the content of weather_app.py here */</code>
+    <code>from api_connector import ApiConnector
+        from data_processor import DataProcessor
+        
+        class WeatherData:
+            def __init__(self, api_key):
+                self.api_connector = ApiConnector(api_key)
+                self.data_processor = DataProcessor()
+        
+            def get_weather_info(self, city):
+                weather_data = self.api_connector.get_weather_data(city)
+                if weather_data:
+                    processed_data = self.data_processor.process_weather_data(weather_data)
+                    return processed_data
+                else:
+                    return None
+        
+        def main():
+            api_key = "YOUR_OPENWEATHERMAP_API_KEY"
+            weather_data = WeatherData(api_key)
+        
+            city = input("Enter the city name: ")
+            result = weather_data.get_weather_info(city)
+        
+            if result:
+                print(f"Weather in {city}:")
+                print(f"Temperature: {result['temperature']}°C")
+                print(f"Description: {result['description']}")
+                print(f"Humidity: {result['humidity']}%")
+                print(f"Wind Speed: {result['wind_speed']} m/s")
+            else:
+                print("Unable to fetch weather information.")
+        
+        if __name__ == "__main__":
+            main()
+        </code>
 
     <h1>Instructions:</h1>
     <ol>
