@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with Python for Beginners</title>
+    
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 40px;
+            color: #3b3a46;
+            /* overflow: hidden; Remove or comment out this line to enable scrolling */
+        }
+
+        h1, p {
+            color: #000;
+        }
+
+        h2 {
+            color: #007bff;
+        } 
+
+        ol {
+            padding-left: 20px;
+        }
+
+        code, pre {
+            background-color: #f4f4f4;
+            border-radius: 7px;
+            font-family: 'Courier New', Courier, monospace;
+            width: relative;
+        }
+
+        code {
+            padding: 2px 5px;
+            color: #0066cc; /* Dark blue for code text */
+        }
+
+        pre {
+            padding: 10px;
+            overflow-x: auto;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none; /* Remove underlining */
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        header {
+            background-color: #2587d6; /* Python Blue */
+            padding: 10px;
+            text-align: center;
+            color: white;
+            font-size: 36px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 18px;
+        }
+
+        section {
+            margin-top: 30px;
+            padding: 30px; /* Adjust the padding as needed */
+            background-color: #ffffff; /* White background */
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 85%; /* Set the desired width, you can use a percentage or any valid CSS value */
+            margin-left: auto; /* Center the section */
+            margin-right: auto; /* Center the section */
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #000000;
+            position: relative;
+            bottom: 0;
+            width: 100%;        
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: block;
+            z-index: -1; /* Move particles behind other elements */
+        }
+
+        .nonClickableLayer {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0); /* Adjust the alpha value for transparency */
+            z-index: 999; /* Ensure it's above other elements */
+            pointer-events: none; /* Make it non-clickable */
+    }
+
+    .sT {
+        user-select: text; /* Allow text selection */
+      }
+
+
+
+    </style>
+    
+</head>
+
+<body>
+
+    <div class="nonClickableLayer"></div>   
+
+    <canvas id="particleCanvas"></canvas>
+
+
+        <header>
+            <h1>Start Your Journey on Python</h1>
+        </header>
+
+        <section>
+            <h2>Introduction to Python Programming</h2>
+            <p>Python, conceived by Guido van Rossum in 1991, has evolved into a versatile and widely-used programming language. Renowned for its simplicity, readability, and broad applicability, Python is a formidable choice for various domains, including web development, software creation, mathematical computations, and system scripting.</p>
+        
+            <h3>Key Features of Python:</h3>
+            <ul>
+                <li><strong>Web Development:</strong> Python seamlessly serves on servers to craft robust web applications.</li>
+                <li><strong>Software Development:</strong> Python excels in both rapid prototyping and the development of production-ready software.</li>
+                <li><strong>Database Connectivity:</strong> Python effortlessly connects to various database systems and efficiently manipulates files.</li>
+                <li><strong>Big Data Handling:</strong> Python is adept at handling large datasets and performing complex mathematical operations.</li>
+            </ul>
+        
+            <h3>Why Choose Python:</h3>
+            <ul>
+                <li><strong>Cross-Platform Compatibility:</strong> Python operates across diverse platforms, including Windows, Mac, Linux, and even Raspberry Pi.</li>
+                <li><strong>Simple Syntax:</strong> Boasting a syntax akin to the English language, Python's simplicity allows developers to write concise code with fewer lines.</li>
+                <li><strong>Interpreted Execution:</strong> Python's interpreter system enables immediate code execution, facilitating rapid prototyping and quick development cycles.</li>
+                <li><strong>Versatile Programming Styles:</strong> Python accommodates procedural, object-oriented, and functional programming approaches.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Lesson 1: Variables and Data Types</h2>
+            <p>In Python, variables serve as containers for storing and managing data. Acting as placeholders, variables can hold various types of values. They are created by assigning a value to a name using the assignment operator (=). Python, being dynamically typed, allows you to skip explicit type declarations; the interpreter infers the type based on the assigned value.</p>
+        
+            <h3>Basic Example:</h3>
+            <pre><code># Creating variables
+        x = 10          # Integer
+        y = 3.14        # Float
+        name = "John"   # String
+        is_true = True  # Boolean
+        
+        # Printing variables
+        print(x)
+        print(y)
+        print(name)
+        print(is_true)
+            </code></pre>
+        
+            <p>Python supports various data types, including:</p>
+            
+            <h3>Numeric Types:</h3>
+            <ul>
+                <li><strong>int:</strong> Integer data type (e.g., 1, -5, 100)</li>
+                <li><strong>float:</strong> Floating-point data type (e.g., 3.14, -2.5, 0.0)</li>
+            </ul>
+        
+            <h3>String Type:</h3>
+            <ul>
+                <li><strong>str:</strong> String data type (e.g., "Hello", 'Python')</li>
+            </ul>
+        
+            <h3>Boolean Type:</h3>
+            <ul>
+                <li><strong>bool:</strong> Boolean data type representing True or False values.</li>
+            </ul>
+        
+            <h3>Sequence Types:</h3>
+            <ul>
+                <li><strong>list:</strong> Ordered collection of items (e.g., [1, 2, 3])</li>
+                <li><strong>tuple:</strong> Immutable ordered collection of items (e.g., (1, 2, 3))</li>
+                <li><strong>range:</strong> Represents a range of values.</li>
+            </ul>
+        
+            <h3>Mapping Type:</h3>
+            <ul>
+                <li><strong>dict:</strong> Collection of key-value pairs (e.g., {'key': 'value'})</li>
+            </ul>
+        
+            <h3>Set Types:</h3>
+            <ul>
+                <li><strong>set:</strong> Unordered collection of unique items (e.g., {1, 2, 3})</li>
+            </ul>
+        
+            <h3>None Type:</h3>
+            <ul>
+                <li><strong>None:</strong> Represents the absence of a value or a null value.</li>
+            </ul>
+        
+            <h3>Example Illustrating Different Data Types:</h3>
+            <pre><code># Numeric types
+        num_int = 42
+        num_float = 3.14
+        
+        # String type
+        my_string = "Hello, Python!"
+        
+        # Boolean type
+        is_python_fun = True
+        
+        # List type
+        my_list = [1, 2, 3, 4]
+        
+        # Tuple type
+        my_tuple = (5, 6, 7, 8)
+        
+        # Dictionary type
+        my_dict = {'name': 'Alice', 'age': 30}
+        
+        # Set type
+        my_set = {1, 2, 3, 4, 4}
+        
+        # None type
+        nothing_here = None
+            </code></pre>
+        
+            <p>These are some of the fundamental data types in Python. Understanding and effectively using them is crucial for writing Python programs.</p>
+        </section>
+        
+
+        <section>
+            <h2>Lesson 2: Control Flow and Loops</h2>
+            <p>In Python, control flow statements and loops enable you to manage the execution of your code based on conditions and to repeat specific blocks of code. Here's an overview of Python control flow and loops:</p>
+        
+            <h3>1. Conditional Statements:</h3>
+        
+            <h4>if Statement:</h4>
+            <p>The <code>if</code> statement allows you to execute a block of code if a certain condition is true.</p>
+            <pre><code>x = 10
+        
+        if x > 5:
+            print("x is greater than 5")
+        elif x == 5:
+            print("x is equal to 5")
+        else:
+            print("x is less than 5")
+            </code></pre>
+        
+            <h4>while Loop:</h4>
+            <p>The <code>while</code> loop repeatedly executes a block of code as long as a specified condition is true.</p>
+            <pre><code>count = 0
+        
+        while count < 5:
+            print(f"Count: {count}")
+            count += 1
+            </code></pre>
+        
+            <h3>2. Iterative Statements:</h3>
+        
+            <h4>for Loop:</h4>
+            <p>The <code>for</code> loop iterates over a sequence (such as a list, tuple, string, or range) and executes a block of code for each element in the sequence.</p>
+            <pre><code>fruits = ["apple", "banana", "orange"]
+        
+        for fruit in fruits:
+            print(f"Current fruit: {fruit}")
+            </code></pre>
+        
+            <h4>range() Function:</h4>
+            <p>The <code>range()</code> function generates a sequence of numbers that can be used with a <code>for</code> loop.</p>
+            <pre><code>for i in range(5):
+            print(i)
+            </code></pre>
+        
+            <h3>3. Control Flow Statements:</h3>
+        
+            <h4>break Statement:</h4>
+            <p>The <code>break</code> statement is used to exit a loop prematurely.</p>
+            <pre><code>for i in range(10):
+            if i == 5:
+                break
+            print(i)
+            </code></pre>
+        
+            <h4>continue Statement:</h4>
+            <p>The <code>continue</code> statement is used to skip the rest of the code inside a loop for the current iteration and move to the next iteration.</p>
+            <pre><code>for i in range(10):
+            if i == 5:
+                continue
+            print(i)
+            </code></pre>
+        
+            <h4>pass Statement:</h4>
+            <p>The <code>pass</code> statement is a null operation, serving as a placeholder where syntactically some code is required but you don't want to execute any statements.</p>
+            <pre><code>for i in range(3):
+            pass  # Placeholder, does nothing
+            </code></pre>
+        
+            <p>These control flow and loop structures are fundamental to programming in Python, allowing you to create more dynamic and flexible programs based on different conditions and iterations.</p>
+        </section>
+        
+
+        <section>
+            <h2>Lesson 3: Functions and Modules</h2>
+            <p>Functions and modules are essential concepts in Python that help you organize and modularize your code. Here's an overview of both:</p>
+        
+            <h3>Functions:</h3>
+            
+            <p>A function is a block of reusable code that performs a specific task. It allows you to break down your code into smaller, manageable pieces. Functions in Python are defined using the <code>def</code> keyword.</p>
+        
+            <h4>Function Definition:</h4>
+            <pre><code>def greet(name):
+            """This function greets the person passed in as a parameter."""
+            print(f"Hello, {name}!")
+        
+        # Function Call
+        greet("John")
+            </code></pre>
+        
+            <h4>Parameters and Return Values:</h4>
+            <p>Functions can take parameters, and they can also return values.</p>
+            <pre><code>def add_numbers(x, y):
+            """This function adds two numbers and returns the result."""
+            result = x + y
+            return result
+        
+        sum_result = add_numbers(3, 5)
+        print(f"Sum: {sum_result}")
+            </code></pre>
+        
+            <h3>Modules:</h3>
+        
+            <p>A module is a file containing Python definitions and statements. It allows you to organize your code logically into separate files. You can use modules to group related functions, classes, and variables together.</p>
+        
+            <h4>Creating a Module:</h4>
+            <p>Suppose you have a file named <code>math_operations.py</code>:</p>
+            <pre><code># math_operations.py
+        
+        def add(x, y):
+            return x + y
+        
+        def subtract(x, y):
+            return x - y
+        
+        def multiply(x, y):
+            return x * y
+        
+        def divide(x, y):
+            if y != 0:
+                return x / y
+            else:
+                return "Cannot divide by zero!"
+            </code></pre>
+        
+            <h4>Using a Module:</h4>
+            <p>You can use the functions from a module by importing it into your script.</p>
+            <pre><code># main.py
+        
+        import math_operations
+        
+        result_add = math_operations.add(5, 3)
+        result_subtract = math_operations.subtract(8, 4)
+        result_multiply = math_operations.multiply(2, 6)
+        result_divide = math_operations.divide(10, 2)
+        
+        print(f"Addition: {result_add}")
+        print(f"Subtraction: {result_subtract}")
+        print(f"Multiplication: {result_multiply}")
+        print(f"Division: {result_divide}")
+            </code></pre>
+        
+            <h4>Additional Concepts:</h4>
+            
+            <p><strong>Default Arguments:</strong> You can provide default values for function parameters.</p>
+            <pre><code>def greet(name, greeting="Hello"):
+            print(f"{greeting}, {name}!")
+        
+        greet("John")
+        greet("Alice", "Good morning")
+            </code></pre>
+        
+            <p><strong>Variable-Length Arguments:</strong> You can use <code>*args</code> and <code>**kwargs</code> to handle variable-length arguments.</p>
+            <pre><code>def print_args(*args, **kwargs):
+            print("Positional Arguments:", args)
+            print("Keyword Arguments:", kwargs)
+        
+        print_args(1, 2, 3, name="John", age=25)
+            </code></pre>
+        
+            <p>These concepts help make your code more modular, reusable, and easier to maintain. Functions and modules are crucial for structuring large Python projects and promoting code organization.</p>
+        </section>
+        
+        <section>
+            <h2>Lesson 4: File Handling</h2>
+            <p>File handling in Python allows you to perform operations on files, such as reading from them, writing to them, and manipulating their contents. Python provides built-in functions and methods to work with files. Here's an overview of file handling in Python:</p>
+        
+            <h3>Opening a File:</h3>
+            <p>To perform operations on a file, you need to open it first using the <code>open()</code> function. The <code>open()</code> function takes two arguments: the file path and the mode (read, write, append, etc.).</p>
+            <pre><code># Opening a file for reading
+        file_path = "example.txt"
+        file = open(file_path, "r")  # "r" stands for read mode
+        
+        # Do operations on the file
+        
+        # Close the file when done
+        file.close()
+            </code></pre>
+        
+            <h3>Reading from a File:</h3>
+            <p>You can read the contents of a file using various methods, such as <code>read()</code>, <code>readline()</code>, or <code>readlines()</code>.</p>
+            <pre><code># Reading the entire content of a file
+        file = open("example.txt", "r")
+        content = file.read()
+        print(content)
+        file.close()
+        
+        # Reading line by line
+        file = open("example.txt", "r")
+        for line in file:
+            print(line.strip())  # strip() removes leading and trailing whitespaces
+        file.close()
+            </code></pre>
+        
+            <h3>Writing to a File:</h3>
+            <p>You can write to a file using the <code>write()</code> method.</p>
+            <pre><code># Writing to a file
+        file = open("example.txt", "w")  # "w" stands for write mode
+        file.write("This is a line of text.\n")
+        file.write("Another line of text.\n")
+        file.close()
+            </code></pre>
+        
+            <h3>Appending to a File:</h3>
+            <p>To add content to an existing file without overwriting it, you can open the file in append mode ("a").</p>
+            <pre><code># Appending to a file
+        file = open("example.txt", "a")  # "a" stands for append mode
+        file.write("Appended line of text.\n")
+        file.close()
+            </code></pre>
+        
+            <h3>Using the with Statement:</h3>
+            <p>The <code>with</code> statement is used for automatic resource management, such as file handling. It automatically takes care of closing the file, even if an error occurs.</p>
+            <pre><code># Using the with statement for file handling
+        with open("example.txt", "r") as file:
+            content = file.read()
+            print(content)
+        # File is automatically closed outside the with block
+            </code></pre>
+        
+            <h3>Handling Exceptions:</h3>
+            <p>It's important to handle file-related exceptions, such as <code>FileNotFoundError</code> or <code>PermissionError</code>, especially when working with user-specified file paths.</p>
+            <pre><code>try:
+            with open("nonexistent_file.txt", "r") as file:
+                content = file.read()
+                print(content)
+        except FileNotFoundError:
+            print("File not found.")
+        except PermissionError:
+            print("Permission error.")
+            </code></pre>
+        
+            <p>These are basic examples of file handling in Python. Depending on your needs, you might also want to explore more advanced topics such as working with binary files, using the <code>os</code> module for file and directory manipulation, or working with different file formats (CSV, JSON, etc.).</p>
+        </section>
+
+        <section>
+            <h2>Lesson 5: Object-Oriented Programming (OOP)</h2>
+            <p>Object-Oriented Programming (OOP) is a programming paradigm that organizes code into objects, which can encapsulate data and behavior. It is based on the concept of "objects," which are instances of classes. Here's a brief introduction to OOP without diving too much into details:</p>
+        
+            <h3>Key Concepts:</h3>
+        
+            <h4>Class:</h4>
+            <p>A blueprint or template for creating objects. Defines attributes (data) and methods (functions) that the objects will have.</p>
+            <pre><code>class Dog:
+            def __init__(self, name, age):
+                self.name = name
+                self.age = age
+        
+            def bark(self):
+                print("Woof!")
+            </code></pre>
+        
+            <h4>Object:</h4>
+            <p>An instance of a class. Represents a real-world entity and contains data and behavior.</p>
+            <pre><code>my_dog = Dog("Buddy", 3)
+            </code></pre>
+        
+            <h4>Attributes:</h4>
+            <p>Variables that store data within an object. Characteristics or properties of an object.</p>
+            <pre><code>print(my_dog.name)  # Output: Buddy
+            </code></pre>
+        
+            <h4>Methods:</h4>
+            <p>Functions defined within a class. Represent the behavior or actions of an object.</p>
+            <pre><code>my_dog.bark()  # Output: Woof!
+            </code></pre>
+        
+            <h4>Encapsulation:</h4>
+            <p>Bundling of data (attributes) and methods that operate on the data within a single unit (class). Access Control: Restricting access to certain attributes or methods. Public, private, and protected access levels.</p>
+            <pre><code>class Circle:
+            def __init__(self, radius):
+                self.__radius = radius  # Private attribute
+        
+            def get_radius(self):
+                return self.__radius
+        
+        my_circle = Circle(5)
+        print(my_circle.get_radius())  # Output: 5
+        # print(my_circle.__radius)  # Error: 'Circle' object has no attribute '__radius'
+            </code></pre>
+        
+            <h4>Inheritance:</h4>
+            <p>A mechanism to create a new class (derived or child class) by inheriting properties and behaviors from an existing class (base or parent class).</p>
+            <pre><code>class Animal:
+            def __init__(self, name):
+                self.name = name
+        
+            def speak(self):
+                pass  # Abstract method
+        
+        class Dog(Animal):
+            def speak(self):
+                return "Woof!"
+        
+        class Cat(Animal):
+            def speak(self):
+                return "Meow!"
+        
+        my_dog = Dog("Buddy")
+        my_cat = Cat("Whiskers")
+        
+        print(my_dog.speak())  # Output: Woof!
+        print(my_cat.speak())  # Output: Meow!
+            </code></pre>
+        
+            <h4>Polymorphism:</h4>
+            <p>The ability of objects to take on multiple forms based on their context. Method Overriding: Providing a specific implementation of a method in a derived class that is already defined in the base class.</p>
+            <pre><code>class Bird:
+            def fly(self):
+                return "Can fly"
+        
+        class Penguin(Bird):
+            def fly(self):
+                return "Can't fly"
+        
+        my_bird = Bird()
+        my_penguin = Penguin()
+        
+        print(my_bird.fly())  # Output: Can fly
+        print(my_penguin.fly())  # Output: Can't fly
+            </code></pre>
+        
+            <p>Object-Oriented Programming provides a way to structure code that reflects real-world entities and their relationships. It promotes modularity, reusability, and maintainability of code. These concepts provide a foundation for understanding more advanced topics in OOP, such as abstraction, interfaces, and design patterns.</p>
+        </section>
+        
+        <section>
+            <h2>Lesson 6: Error Handling in Python</h2>
+            <p>Error handling in Python involves dealing with errors and exceptions that may occur during the execution of a program. Exceptions are events that can disrupt the normal flow of a program. Python provides a robust mechanism to handle exceptions and manage errors effectively.</p>
+        
+            <h3>Try-Except Block:</h3>
+            <p>The try and except blocks are used to handle exceptions in Python. Code that may raise an exception is placed inside the try block, and the handling code is placed inside the except block.</p>
+            <pre><code>try:
+            # Code that may raise an exception
+            result = 10 / 0
+        except ZeroDivisionError:
+            # Handling the specific exception
+            print("Error: Division by zero")
+        except Exception as e:
+            # Handling other exceptions
+            print(f"An error occurred: {e}")
+            </code></pre>
+        
+            <h3>Finally Block:</h3>
+            <p>The finally block is optional and is used to define code that should be executed no matter whether an exception occurred or not. It is often used for cleanup operations.</p>
+            <pre><code>try:
+            # Code that may raise an exception
+            result = 10 / 0
+        except ZeroDivisionError:
+            # Handling the specific exception
+            print("Error: Division by zero")
+        finally:
+            # Code in this block will be executed regardless of whether an exception occurred
+            print("Finally block executed")
+            </code></pre>
+        
+            <h3>Handling Multiple Exceptions:</h3>
+            <p>You can handle multiple exceptions in a single except block or use multiple except blocks for different exceptions.</p>
+            <pre><code>try:
+            # Code that may raise an exception
+            value = int("abc")
+        except (ValueError, TypeError):
+            # Handling multiple exceptions in one block
+            print("Error: Invalid conversion")
+        except ZeroDivisionError:
+            print("Error: Division by zero")
+            </code></pre>
+        
+            <h3>Raising Exceptions:</h3>
+            <p>You can raise exceptions explicitly using the raise statement. This is useful when you want to indicate an error or exceptional condition in your code.</p>
+            <pre><code>def divide(x, y):
+            if y == 0:
+                raise ValueError("Division by zero is not allowed")
+            return x / y
+        
+        try:
+            result = divide(10, 0)
+        except ValueError as ve:
+            print(f"Error: {ve}")
+            </code></pre>
+        
+            <h3>Custom Exceptions:</h3>
+            <p>You can create custom exceptions by defining a new class that inherits from the built-in Exception class.</p>
+            <pre><code>class CustomError(Exception):
+            def __init__(self, message):
+                self.message = message
+        
+        try:
+            raise CustomError("This is a custom exception")
+        except CustomError as ce:
+            print(f"Custom Error: {ce}")
+            </code></pre>
+        
+            <h3>Exception Handling Best Practices:</h3>
+            <ul>
+                <li>Be specific about the exceptions you catch to avoid catching unexpected errors.</li>
+                <li>Use finally for cleanup code that should be executed regardless of whether an exception occurred.</li>
+                <li>Avoid using bare except as it can catch unexpected errors and make debugging challenging.</li>
+                <li>Consider logging exceptions to aid in debugging.</li>
+            </ul>
+            <pre><code>import logging
+        
+        try:
+            # Code that may raise an exception
+            result = 10 / 0
+        except Exception as e:
+            # Log the exception for debugging
+            logging.error(f"An error occurred: {e}")
+            </code></pre>
+        
+            <p>Understanding and effectively handling exceptions is crucial for writing robust and reliable Python code. It helps identify and address issues gracefully, improving the overall stability of your applications.</p>
+        </section>
+        
+        <section>
+            <h2>Lesson 7: Working with Libraries and Packages in Python</h2>
+            <p>Working with libraries and packages is a crucial aspect of Python development. Python has a rich ecosystem of libraries and packages that provide pre-built functionality, making it easier to develop applications. Here's an overview of working with libraries and packages in Python:</p>
+        
+            <h3>What are Libraries and Packages?</h3>
+            <p><strong>Library:</strong> A collection of modules that provide related functionality. Modules in a library are Python files containing functions, classes, and variables.</p>
+            <p><strong>Package:</strong> A way of organizing related modules into a directory hierarchy. Packages include a special __init__.py file to indicate that the directory should be treated as a package.</p>
+        
+            <h3>Installing Packages:</h3>
+            <p>Python packages can be installed using package managers such as pip. The following commands install packages from the Python Package Index (PyPI):</p>
+            <pre><code>pip install package_name</code></pre>
+        
+            <h3>Using Built-in Libraries:</h3>
+            <p>Python comes with a set of built-in libraries that provide core functionality. Some common examples include:</p>
+            <h4>math Library:</h4>
+            <pre><code>import math
+        
+        result = math.sqrt(25)
+        print(result)  # Output: 5.0</code></pre>
+            <h4>random Library:</h4>
+            <pre><code>import random
+        
+        number = random.randint(1, 10)
+        print(number)</code></pre>
+            <h4>datetime Library:</h4>
+            <pre><code>from datetime import datetime
+        
+        current_time = datetime.now()
+        print(current_time)</code></pre>
+        
+            <h3>Using External Libraries:</h3>
+            <p>External libraries can be installed and then imported for use in your code. Some widely used external libraries include:</p>
+            <h4>requests for HTTP requests:</h4>
+            <pre><code>import requests
+        
+        response = requests.get("https://www.example.com")
+        print(response.text)</code></pre>
+            <h4>numpy for numerical operations:</h4>
+            <pre><code>import numpy as np
+        
+        array = np.array([1, 2, 3, 4, 5])
+        print(np.mean(array))</code></pre>
+            <h4>pandas for data manipulation:</h4>
+            <pre><code>import pandas as pd
+        
+        data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [25, 30, 35]}
+        df = pd.DataFrame(data)
+        print(df)</code></pre>
+        
+            <h3>Creating Your Own Packages:</h3>
+            <p>You can organize your code into packages and modules for reuse across projects.</p>
+            <pre><code>my_project/
+        |-- my_package/
+        |   |-- __init__.py
+        |   |-- module1.py
+        |   |-- module2.py
+        |-- main_script.py</code></pre>
+            <p>In main_script.py:</p>
+            <pre><code>from my_package.module1 import function1
+        
+        result = function1()
+        print(result)</code></pre>
+        
+            <h3>Virtual Environments:</h3>
+            <p>Use virtual environments to isolate project dependencies. This helps avoid conflicts between different projects and ensures reproducibility.</p>
+            <pre><code># Create a virtual environment
+        python -m venv myenv
+        
+        # Activate the virtual environment
+        source myenv/bin/activate  # On Unix or MacOS
+        myenv\Scripts\activate     # On Windows
+        
+        # Install dependencies within the virtual environment
+        pip install package_name
+        
+        # Deactivate the virtual environment
+        deactivate</code></pre>
+        
+            <p>Understanding how to use external libraries, packages, and creating your own packages allows you to leverage the power of Python's ecosystem and build robust and scalable applications.</p>
+        </section>
+        
+
+        <section>
+            <h2>Lesson 8: Final Project - Weather Information Checker</h2>
+
+    <h1>Project Overview:</h1>
+    <p>Create a Python script that retrieves weather information for a given city using the OpenWeatherMap API. The script will allow the user to input the city name, fetch real-time weather data, and display relevant information.</p>
+
+    <h1>Project Structure:</h1>
+
+    <h3>Modules:</h3>
+    <ul>
+        <li><code>api_connector.py:</code> Module responsible for connecting to the OpenWeatherMap API.</li>
+        <li><code>data_processor.py:</code> Module for processing and formatting the weather data.</li>
+        <li><code>weather_app.py:</code> Main script that interacts with the user.</li>
+    </ul>
+
+    <h3>Classes:</h3>
+    <ul>
+        <li><code>WeatherData:</code> A class to represent the weather data and encapsulate related functionality.</li>
+    </ul>
+
+    <h1>Module Details:</h1>
+
+    <h3><code>api_connector.py</code></h3>
+    <code>/* Copy and paste the content of api_connector.py here */</code>
+
+    <h3><code>data_processor.py</code></h3>
+    <code>/* Copy and paste the content of data_processor.py here */</code>
+
+    <h3><code>weather_app.py</code></h3>
+    <code>/* Copy and paste the content of weather_app.py here */</code>
+
+    <h1>Instructions:</h1>
+    <ol>
+        <li>Replace <code>"YOUR_OPENWEATHERMAP_API_KEY"</code> with your actual OpenWeatherMap API key.</li>
+        <li>Ensure that the required libraries (<code>requests</code>) are installed.</li>
+        <li>Run <code>weather_app.py</code> to execute the script.</li>
+    </ol>
+
+    <h1>Project Goals:</h1>
+    <ul>
+        <li>Create a modular script using separate modules for API connectivity and data processing.</li>
+        <li>Implement a class (<code>WeatherData</code>) to encapsulate weather-related functionality.</li>
+        <li>Interact with an external API (OpenWeatherMap) to fetch real-time weather data.</li>
+        <li>Process and display relevant weather information to the user.</li>
+    </ul>
+
+    <p>Feel free to expand this project further by adding more features, such as a user-friendly interface, additional weather details, or error handling improvements. This project provides a practical application of the concepts covered in the previous lessons.</p>
+
+        </section>
+
+        <section>
+            <h1>Recommended Resources</h1>
+            <p>For further information:</p>
+            <ul>
+                <li><a href="https://docs.python.org/3/" target="_blank">Official Python Documentation</a></li>
+                <li><a href="https://realpython.com/" target="_blank">Real Python</a></li>
+                <li><a href="https://www.learnpython.org/" target="_blank">Learn Python</a></li>
+            </ul>
+        </section>          
+        
+        <footer>
+            &copy; Your Python Course. By Adeesha.
+        </footer>
+
+        <script>
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+    
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+    
+            const particles = [];
+    
+            class Particle {
+                constructor(x, y, radius, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.radius = radius;
+                    this.color = color;
+                    this.speed = Math.random() * 2 + 1; // Random speed for diversity
+                    this.angle = Math.random() * Math.PI * 2; // Random initial angle
+                }
+    
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+    
+                update() {
+                    // Example 1: Circular motion
+                    // this.x += Math.cos(this.angle) * this.speed;
+                    // this.y += Math.sin(this.angle) * this.speed;
+                    // this.angle += 0.02; // Angular speed
+    
+                    // Example 2: Random motion
+                    // this.x += (Math.random() - 0.5) * this.speed;
+                    // this.y += (Math.random() - 0.5) * this.speed;
+    
+                    // Example 3: Diagonal motion
+                    // this.x += this.speed;
+                    // this.y += this.speed;
+    
+                    // Example 4: Zigzag motion
+                    // this.x += this.speed;
+                    // this.y += Math.sin(this.x / 30) * 10;
+    
+                    // Example 5: Bouncing off the walls
+                    this.x += Math.cos(this.angle) * this.speed;
+                    this.y += Math.sin(this.angle) * this.speed;
+                    this.angle += 0.02; // Angular speed
+    
+                    if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+                        this.angle = Math.PI - this.angle;
+                    }
+    
+                    if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
+                        this.angle = -this.angle;
+                    }
+    
+                    if (this.radius > 0.2) {
+                        this.radius -= 0.1;
+                    }
+                }
+            }
+    
+            function createParticles(event) {
+                const mouseX = event.x;
+                const mouseY = event.y;
+    
+                for (let i = 0; i < 5; i++) {
+                    particles.push(new Particle(mouseX, mouseY, Math.random() * 5 + 2, getRandomNeonColor()));
+                }
+            }
+    
+            function getRandomNeonColor() {
+                const neonColors = ['#00ffcc', '#33ff33', '#ff66ff', '#ffcc00', '#00ccff'];
+                return neonColors[Math.floor(Math.random() * neonColors.length)];
+            }
+    
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+    
+                    if (particles[i].radius <= 0.2) {
+                        particles.splice(i, 1);
+                        i--;
+                    }
+                }
+    
+                requestAnimationFrame(animateParticles);
+            }
+    
+            document.addEventListener('mousemove', createParticles);
+            animateParticles();
+        </script>
+
+
+</body>
